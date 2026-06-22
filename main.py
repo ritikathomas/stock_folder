@@ -10,7 +10,7 @@ from view import (
 
 @st.cache_data
 def load_data():
-    df = pd.read_parquet(r"C:\Users\ritik\Downloads\stock_daily_cleaned.parquet")
+    df = pd.read_parquet("stock_daily_cleaned.parquet")
     return df
 
 def main():
