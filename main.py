@@ -55,7 +55,8 @@ def main():
     ]
     page = st.sidebar.radio(
         " ",
-        nav_options
+        nav_options,
+        key="main_nav_1"
     )
     st.sidebar.divider()
     st.sidebar.info(f"Total Records: {len(df):,}")
@@ -163,7 +164,8 @@ def main():
     ]
     page = st.sidebar.radio(
         " ",
-        nav_options
+        nav_options,
+        key="main_nav_2"
     )
     st.sidebar.divider()
     st.sidebar.info(f"Total Records: {len(df):,}")
@@ -268,7 +270,8 @@ def main():
     ]
     page = st.sidebar.radio(
         " ",
-        nav_options
+        nav_options,
+        key="main_nav_3"
     )
     st.sidebar.divider()
     st.sidebar.info(f"Total Records: {len(df):,}")
