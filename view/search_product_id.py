@@ -15,10 +15,7 @@ def show_search_product_id(df):
         matches = df[mask.any(axis=1)]
         if not matches.empty:
             st.success(f"Found {len(matches)} result(s) matching: '{search_term}'")
-            for idx, row in matches.iterrows():
-                with st.expander(f"Product ID: {row.get('product_id', idx)}", expanded=False):
-                    for col in matches.columns:
-                        st.write(f"**{col}:** {row[col]}")
+            st.dataframe(matches, use_container_width=True)
         else:
             st.error(f"No matching results found for: '{search_term}'")
     st.divider()
