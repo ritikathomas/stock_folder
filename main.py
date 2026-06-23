@@ -173,9 +173,6 @@ def main():
     # Show main navigation
     if page == "Overview":
         show_data_overview(df)
-        # Show manufacturer contribution chart in Overview
-        import streamlit as st
-        import matplotlib.pyplot as plt
         st.subheader("Manufacturer Contribution to Total Stock Value")
         plot_manufacturer_contribution(df)
     elif page == "Category Analysis":
