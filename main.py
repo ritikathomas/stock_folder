@@ -158,7 +158,7 @@ def main():
         low_stock_label,
         overstock_trend_label,
         understock_trend_label,
-        "Avg Consumption/Supply Days"
+        "Avg Consumption"
     ]
     page = st.sidebar.radio(
         " ",
@@ -205,7 +205,7 @@ def main():
             st.write(top_understock.to_frame('Understocked Items').reset_index())
         else:
             st.info("No understocked trend data available.")
-    elif page == "Avg Consumption/Supply Days":
+    elif page == "Avg Consumption":
         st.subheader("Average Consumption & Days of Supply")
         product_input = st.text_input("Enter product name")
         num_days = st.number_input("Number of days", min_value=1, value=30)
