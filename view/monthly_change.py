@@ -33,3 +33,4 @@ def show_monthly_change(df):
         'Costs % Change': monthly_costs_pct,
     })
     st.dataframe(pct_df, use_container_width=True)
+
