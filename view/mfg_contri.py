@@ -1,9 +1,8 @@
-st.write("COLUMN NAMES:", df.columns.tolist())
 import streamlit as st
 import matplotlib.pyplot as plt
 
 def plot_manufacturer_contribution(df):
-    # Adjust the column names below to match your data!
+    # Group by manufacturer and sum the stock value
     manufacturer_stock_value = df.groupby('Mfg_Name_V')['Stk_Stock_N'].sum().sort_values(ascending=False)
     latest_date = df['ReportDate'].max()
 
