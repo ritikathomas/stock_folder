@@ -2,9 +2,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 def plot_manufacturer_contribution(df):
-    # Group by manufacturer and sum the stock value
-    manufacturer_stock_value = df.groupby('Manufacturer')['Stock Value'].sum().sort_values(ascending=False)
-    latest_date = df['Date'].max()
+    # Adjust the column names below to match your data!
+    manufacturer_stock_value = df.groupby('Mfg_Name_V')['Stk_Stock_N'].sum().sort_values(ascending=False)
+    latest_date = df['ReportDate'].max()
 
     plt.figure(figsize=(12, 10))
     top_n = 10
@@ -21,7 +21,7 @@ def plot_manufacturer_contribution(df):
         pctdistance=0.85
     )
     plt.title(
-        f"Manufacturer Contribution to Total Stock Value (as of {latest_date.strftime('%Y-%m-%d')})",
+        f"Manufacturer Contribution to Total Stock (as of {latest_date.strftime('%Y-%m-%d')})",
         fontsize=14
     )
     plt.axis('equal')
