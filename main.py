@@ -1,11 +1,13 @@
 import streamlit as st
 import pandas as pd
+from view.mfg_contri import show_mfg_contribution  # adjust the function name as needed
 from view import (
     show_data_overview,
     show_category_chart,
     show_search_product_id,
     show_top_manufacturer,
 )
+from view.mfg_contri import plot_manufacturer_contribution
 
 # Inserted supply days calculation sub-function
 import difflib
@@ -171,6 +173,11 @@ def main():
     # Show main navigation
     if page == "Overview":
         show_data_overview(df)
+        # Show manufacturer contribution chart in Overview
+        import streamlit as st
+        import matplotlib.pyplot as plt
+        st.subheader("Manufacturer Contribution to Total Stock Value")
+        plot_manufacturer_contribution(df)
     elif page == "Category Analysis":
         show_category_chart(df)
     elif page == "Top Manufacturer":
