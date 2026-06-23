@@ -29,7 +29,7 @@ def plot_manufacturer_contribution(df):
         rotatelabels=True,
         pctdistance=0.85
     )
-    )
+    plt.title(" ")
     plt.axis('equal')
     plt.tight_layout()
     st.pyplot(plt)
