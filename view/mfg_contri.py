@@ -1,3 +1,4 @@
+st.write("COLUMN NAMES:", df.columns.tolist())
 import streamlit as st
 import matplotlib.pyplot as plt
 
