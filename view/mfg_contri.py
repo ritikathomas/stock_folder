@@ -2,8 +2,26 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 def plot_manufacturer_contribution(df):
-    # Group by manufacturer and sum the stock value
-    manufacturer_stock_value = df.groupby('Mfg_Name_V')['Stk_Stock_N'].sum().sort_values(ascending=False)
+    # Diagnostic output
+    st.write("COLUMN NAMES:", df.columns.tolist())
+    st.write("Sample Data:", df.head())
+
+    # Use only the ACTUAL column names
+    if 'Mfg_Name_V' not in df or 'Stk_Stock_N' not in df:
+        st.error("'Mfg_Name_V' or 'Stk_Stock_N' column not found in DataFrame.")
+        return
+
+    clean_df = df.dropna(subset=['Mfg_Name_V'])
+    if clean_df.empty:
+        st.error("No records after dropping rows with missing manufacturer names.")
+        return
+
+    # Only use existing columns
+    manufacturer_stock_value = clean_df.groupby('Mfg_Name_V')['Stk_Stock_N'].sum().sort_values(ascending=False)
+    if manufacturer_stock_value.empty:
+        st.warning("No manufacturer data to display.")
+        return
+
     latest_date = df['ReportDate'].max()
 
     plt.figure(figsize=(12, 10))
