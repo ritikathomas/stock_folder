@@ -29,9 +29,6 @@ def plot_manufacturer_contribution(df):
         rotatelabels=True,
         pctdistance=0.85
     )
-    plt.title(
-        f"Top {top_n} Manufacturers + Others (as of {latest_date.strftime('%Y-%m-%d')})",
-        fontsize=14
     )
     plt.axis('equal')
     plt.tight_layout()
