@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from view.mfg_contri import show_mfg_contribution  # adjust the function name as needed
+
 from view import (
     show_data_overview,
     show_category_chart,
