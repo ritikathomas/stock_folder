@@ -2,9 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 def plot_manufacturer_contribution(df):
-    st.write("COLUMN NAMES:", df.columns.tolist())
-    st.write("Sample Data:", df.head())
-    # Use the exact column names found in your DataFrame
+    # Ensure the columns exist
     if 'Mfg_Name_V' not in df or 'Stk_Stock_N' not in df:
         st.error("Column 'Mfg_Name_V' or 'Stk_Stock_N' not found in DataFrame!")
         return
